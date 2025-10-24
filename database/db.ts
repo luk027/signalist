@@ -1,34 +1,22 @@
-import 'server-only';
-import mongoose, { Connection } from 'mongoose';
+import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI;
-const NODE_ENV = process.env.NODE_ENV || 'development';
-
-if (!MONGODB_URI) {
-    throw new Error('Please define the MONGODB_URI environment variable');
-}
-
-interface MongooseCache {
-    conn: Connection | null;
-    promise: Promise<Connection> | null;
-}
-
+if (!MONGODB_URI) throw new Error('MONGODB_URI must be set within .env');
 declare global {
-    var mongooseCache: MongooseCache | undefined;
+    var mongooseCache: {
+        conn: typeof mongoose | null;
+        promise: Promise<typeof mongoose> | null;
+    }
 }
 
-const globalCache = global.mongooseCache || { conn: null, promise: null };
-global.mongooseCache = globalCache;
+let cached = global.mongooseCache;
 
-export async function connectToDatabase(): Promise<Connection> {
-    const cached = global.mongooseCache!;
+if (!cached) { cached = global.mongooseCache = { conn: null, promise: null } };
 
+export const connectToDatabase = async () => {
     if (cached.conn) return cached.conn;
 
-    if (!cached.promise) {
-        const opts = { bufferCommands: false, maxPoolSize: 10 };
-        cached.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose) => mongoose.connection);
-    }
+    if (!cached.promise) { cached.promise = mongoose.connect(MONGODB_URI, { bufferCommands: false }) };
 
     try {
         cached.conn = await cached.promise;
@@ -37,10 +25,7 @@ export async function connectToDatabase(): Promise<Connection> {
         throw err;
     }
 
-    if (NODE_ENV === 'development') {
-        const { host, name } = cached.conn;
-        console.log(`[db] Connected to ${host}/${name} (${NODE_ENV})`);
-    }
+    console.log(`Connected to database ${process.env.NODE_ENV} - ${MONGODB_URI}`);
 
     return cached.conn;
 }
