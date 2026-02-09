@@ -1,19 +1,4 @@
 declare global {
-    type SignInFormData = {
-        email: string;
-        password: string;
-    };
-
-    type SignUpFormData = {
-        fullName: string;
-        email: string;
-        password: string;
-        country: string;
-        investmentGoals: string;
-        riskTolerance: string;
-        preferredIndustry: string;
-    };
-
     type CountrySelectProps = {
         name: string;
         label: string;
@@ -25,7 +10,7 @@ declare global {
     type CountryOption = {
         value: string;
         label: string;
-      }
+    }
 
     type FormInputProps = {
         name: string;
@@ -64,18 +49,6 @@ declare global {
         renderAs?: 'button' | 'text';
         label?: string;
         initialStocks: StockWithWatchlistStatus[];
-    };
-
-    type WelcomeEmailData = {
-        email: string;
-        name: string;
-        intro: string;
-    };
-
-    type User = {
-        id: string;
-        name: string;
-        email: string;
     };
 
     type Stock = {
@@ -222,4 +195,4 @@ declare global {
     };
 }
 
-export {};
+export { };

@@ -1,39 +1,6 @@
 export const NAV_ITEMS = [
     { href: '/', label: 'Dashboard' },
-    { href: '/search', label: 'Search' },
     { href: '/watchlist', label: 'Watchlist' },
-];
-
-// Sign-up form select options
-export const INVESTMENT_GOALS = [
-    { value: 'Growth', label: 'Growth' },
-    { value: 'Income', label: 'Income' },
-    { value: 'Balanced', label: 'Balanced' },
-    { value: 'Conservative', label: 'Conservative' },
-];
-
-export const RISK_TOLERANCE_OPTIONS = [
-    { value: 'Low', label: 'Low' },
-    { value: 'Medium', label: 'Medium' },
-    { value: 'High', label: 'High' },
-];
-
-export const PREFERRED_INDUSTRIES = [
-    { value: 'Technology', label: 'Technology' },
-    { value: 'Healthcare', label: 'Healthcare' },
-    { value: 'Finance', label: 'Finance' },
-    { value: 'Energy', label: 'Energy' },
-    { value: 'Consumer Goods', label: 'Consumer Goods' },
-];
-
-export const ALERT_TYPE_OPTIONS = [
-    { value: 'upper', label: 'Upper' },
-    { value: 'lower', label: 'Lower' },
-];
-
-export const CONDITION_OPTIONS = [
-    { value: 'greater', label: 'Greater than (>)' },
-    { value: 'less', label: 'Less than (<)' },
 ];
 
 // TradingView Charts
@@ -263,65 +230,85 @@ export const COMPANY_FINANCIALS_WIDGET_CONFIG = (symbol: string) => ({
 });
 
 export const POPULAR_STOCK_SYMBOLS = [
-    // Tech Giants (the big technology companies)
-    'AAPL',
-    'MSFT',
-    'GOOGL',
-    'AMZN',
-    'TSLA',
-    'META',
-    'NVDA',
-    'NFLX',
-    'ORCL',
-    'CRM',
+    { symbol: 'AAPL', name: 'Apple Inc' },
+    { symbol: 'MSFT', name: 'Microsoft Corporation' },
+    { symbol: 'GOOGL', name: 'Alphabet Inc' },
+    { symbol: 'AMZN', name: 'Amazon.com Inc' },
+    { symbol: 'TSLA', name: 'Tesla Inc' },
+    { symbol: 'META', name: 'Meta Platforms' },
+    { symbol: 'NVDA', name: 'NVIDIA Corporation' },
+    { symbol: 'NFLX', name: 'Netflix Inc' },
+    { symbol: 'ORCL', name: 'Oracle Corporation' },
+    { symbol: 'CRM', name: 'Salesforce Inc' },
+    { symbol: 'ADBE', name: 'Adobe Inc' },
+    { symbol: 'INTC', name: 'Intel Corporation' },
+    { symbol: 'AMD', name: 'Advanced Micro Devices' },
+    { symbol: 'PYPL', name: 'PayPal Holdings' },
+    { symbol: 'UBER', name: 'Uber Technologies' },
+    { symbol: 'ZOOM', name: 'Zoom Video Communications' },
+    { symbol: 'SPOT', name: 'Spotify Technology' },
+    { symbol: 'SQ', name: 'Block Inc' },
+    { symbol: 'SHOP', name: 'Shopify Inc' },
+    { symbol: 'ROKU', name: 'Roku Inc' },
+    { symbol: 'SNOW', name: 'Snowflake Inc' },
+    { symbol: 'PLTR', name: 'Palantir Technologies' },
+    { symbol: 'COIN', name: 'Coinbase Global' },
+    { symbol: 'RBLX', name: 'Roblox Corporation' },
+    { symbol: 'DDOG', name: 'Datadog Inc' },
+    { symbol: 'CRWD', name: 'CrowdStrike Holdings' },
+    { symbol: 'NET', name: 'Cloudflare Inc' },
+    { symbol: 'OKTA', name: 'Okta Inc' },
+    { symbol: 'TWLO', name: 'Twilio Inc' },
+    { symbol: 'ZM', name: 'Zoom Video Communications' },
+    { symbol: 'DOCU', name: 'DocuSign Inc' },
+    { symbol: 'PTON', name: 'Peloton Interactive' },
+    { symbol: 'PINS', name: 'Pinterest Inc' },
+    { symbol: 'SNAP', name: 'Snap Inc' },
+    { symbol: 'LYFT', name: 'Lyft Inc' },
+    { symbol: 'DASH', name: 'DoorDash Inc' },
+    { symbol: 'ABNB', name: 'Airbnb Inc' },
+    { symbol: 'RIVN', name: 'Rivian Automotive' },
+    { symbol: 'LCID', name: 'Lucid Group' },
+    { symbol: 'NIO', name: 'NIO Inc' },
+    { symbol: 'XPEV', name: 'XPeng Inc' },
+    { symbol: 'LI', name: 'Li Auto Inc' },
+    { symbol: 'BABA', name: 'Alibaba Group' },
+    { symbol: 'JD', name: 'JD.com Inc' },
+    { symbol: 'PDD', name: 'PDD Holdings' },
+    { symbol: 'TME', name: 'Tencent Music Entertainment' },
+    { symbol: 'BILI', name: 'Bilibili Inc' },
+    { symbol: 'DIDI', name: 'DiDi Global' },
+    { symbol: 'GRAB', name: 'Grab Holdings' },
+    { symbol: 'SE', name: 'Sea Limited' },
 
-    // Growing Tech Companies
-    'ADBE',
-    'INTC',
-    'AMD',
-    'PYPL',
-    'UBER',
-    'ZOOM',
-    'SPOT',
-    'SQ',
-    'SHOP',
-    'ROKU',
+    { symbol: 'RELIANCE', name: 'Reliance Industries' },
+    { symbol: 'TCS', name: 'Tata Consultancy Services' },
+    { symbol: 'HDFCBANK', name: 'HDFC Bank' },
+    { symbol: 'ICICIBANK', name: 'ICICI Bank' },
+    { symbol: 'INFY', name: 'Infosys' },
+    { symbol: 'BHARTIARTL', name: 'Bharti Airtel' },
+    { symbol: 'SBIN', name: 'State Bank of India' },
+    { symbol: 'ITC', name: 'ITC Limited' },
+    { symbol: 'HINDUNILVR', name: 'Hindustan Unilever' },
+    { symbol: 'LT', name: 'Larsen & Toubro' },
+    { symbol: 'BAJFINANCE', name: 'Bajaj Finance' },
+    { symbol: 'AXISBANK', name: 'Axis Bank' },
+    { symbol: 'KOTAKBANK', name: 'Kotak Mahindra Bank' },
+    { symbol: 'SUNPHARMA', name: 'Sun Pharmaceutical' },
+    { symbol: 'TATAMOTORS', name: 'Tata Motors' },
+    { symbol: 'TATASTEEL', name: 'Tata Steel' },
+    { symbol: 'MARUTI', name: 'Maruti Suzuki' },
+    { symbol: 'NTPC', name: 'NTPC Limited' },
+    { symbol: 'WIPRO', name: 'Wipro Limited' },
+    { symbol: 'ADANIENT', name: 'Adani Enterprises' },
 
-    // Newer Tech Companies
-    'SNOW',
-    'PLTR',
-    'COIN',
-    'RBLX',
-    'DDOG',
-    'CRWD',
-    'NET',
-    'OKTA',
-    'TWLO',
-    'ZM',
-
-    // Consumer & Delivery Apps
-    'DOCU',
-    'PTON',
-    'PINS',
-    'SNAP',
-    'LYFT',
-    'DASH',
-    'ABNB',
-    'RIVN',
-    'LCID',
-    'NIO',
-
-    // International Companies
-    'XPEV',
-    'LI',
-    'BABA',
-    'JD',
-    'PDD',
-    'TME',
-    'BILI',
-    'DIDI',
-    'GRAB',
-    'SE',
+    { symbol: 'NIFTYBEES', name: 'Nippon India ETF Nifty BeES' },
+    { symbol: 'BANKBEES', name: 'Nippon India ETF Bank BeES' },
+    { symbol: 'GOLDBEES', name: 'Nippon India ETF Gold BeES' },
+    { symbol: 'SILVERBEES', name: 'Nippon India ETF Silver BeES' },
+    { symbol: 'JUNIORBEES', name: 'Nippon India ETF Junior BeES' },
+    { symbol: 'LIQUIDBEES', name: 'Nippon India ETF Liquid BeES' },
+    { symbol: 'TATAGOLD', name: 'Tata Gold ETF' },
 ];
 
 export const NO_MARKET_NEWS =
